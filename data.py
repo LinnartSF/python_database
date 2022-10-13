@@ -51,8 +51,8 @@ class Database:
         else:
             return self.Cursor.fetchall()
     
-    def commit(self)-> None: 
-        """ commits changes without closing connection to database  """
+    def commit(self)-> None:
+        """ commits changes without closing connection to database """
         self.Connection.commit()
     
     def close(self) -> None:
@@ -67,16 +67,30 @@ class Database:
     def truncate_table(self, tablename: str) -> None:
         """ deletes all records and data in the table """
         if self.Type == "sqlite3":
-            query = "DELETE FROM {};".format(tablename)
+            query = f"DELETE FROM {tablename};"
         else:
-            query = "TRUNCATE TABLE {};".format(tablename)
+            query = f"TRUNCATE TABLE {tablename};"
         self.Cursor.execute(query)
     
     def delete_records(self,tablename: str, condition: str = "none") -> None:
         """ deletes all those entries from the datatable in which the condition is satisfied """
-        query = "DELETE FROM {} WHERE {};".format(tablename, condition)
+        query = f"DELETE FROM {tablename} WHERE {condition};"
         self.Cursor.execute(query)
     
     def drop_table(self, tablename: str) -> None: 
         """ drops a table from the database, i.e. table is removed """
-        self.Cursor.execute("DROP TABLE {};").format(tablename)
+        self.Cursor.execute(f"DROP TABLE {tablename};")
+
+    @staticmethod
+    def vals_to_str(vals: list) -> str:
+        """ method for converting a list of values into a SQLite friendly query strings """
+        returnstr = ""
+        for i in vals:
+            if type(i) == str: 
+                returnstr = returnstr+",'"+i+"'"
+            else:
+                if len(returnstr)>0:
+                    returnstr = returnstr+","+str(i)
+                else:
+                    returnstr = str(i)
+        return returnstr
