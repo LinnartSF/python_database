@@ -51,8 +51,8 @@ class Database:
         else:
             return self.Cursor.fetchall()
     
-    def commit(self)-> None:
-        """ commits changes without closing connection to database """
+    def commit(self)-> None: 
+        """ commits changes without closing connection to database  """
         self.Connection.commit()
     
     def close(self) -> None:
@@ -74,7 +74,7 @@ class Database:
     
     def delete_records(self,tablename: str, condition: str = "none") -> None:
         """ deletes all those entries from the datatable in which the condition is satisfied """
-        query = "DELETE FROM {} WHERE {};".format(tablename,condition)
+        query = "DELETE FROM {} WHERE {};".format(tablename, condition)
         self.Cursor.execute(query)
     
     def drop_table(self, tablename: str) -> None: 
