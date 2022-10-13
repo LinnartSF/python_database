@@ -1,9 +1,6 @@
 """
-
 This script works with Python 3.10 and is meant to be called as an API from local Python installation
-
 The module wraps pyodbc and sqlite3
-
 """
 
 __author__ = "Linnart Felkl"
