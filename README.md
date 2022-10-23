@@ -1,7 +1,8 @@
 # python_database
-Database API in Python; sqlite3 and pyodbc wrapper. This repository is part of <a href="https://www.supplychaindataanalytics.com">Supply Chain Data Analytics (SCDA)</a>.
 
 <img src="https://github.com/LinnartSF/logos/blob/main/main1.png" alt="SCDA - Supply Chain Data Analytics" title="">
+
+Database API in Python; sqlite3 and pyodbc wrapper. This repository is part of <a href="https://www.supplychaindataanalytics.com">Supply Chain Data Analytics (SCDA)</a>.
 
 <h2>repository content</h2>
 
